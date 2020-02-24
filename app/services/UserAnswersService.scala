@@ -139,26 +139,6 @@ trait UserAnswersService {
         userAnswers
     }
   }
-
-  def getIsNewId[T](id: TypedIdentifier[T]): Option[TypedIdentifier[Boolean]] = id match {
-    case TrusteeCompanyAddressYearsId(index) => Some(IsTrusteeNewId(index))
-    case TrusteePartnershipAddressYearsId(index) => Some(IsTrusteeNewId(index))
-    case TrusteeIndividualAddressYearsId(index) => Some(IsTrusteeNewId(index))
-    case EstablisherCompanyAddressYearsId(index) => Some(IsEstablisherNewId(index))
-    case EstablisherPartnershipAddressYearsId(index) => Some(IsEstablisherNewId(index))
-    case EstablisherIndividualAddressYearsId(index) => Some(IsEstablisherNewId(index))
-    case PartnerAddressYearsId(establisherIndex, partnerIndex) => Some(IsNewPartnerId(establisherIndex, partnerIndex))
-    case DirectorAddressYearsId(establisherIndex, directorIndex) => Some(IsNewDirectorId(establisherIndex, directorIndex))
-    case TrusteeCompanyPreviousAddressId(index) => Some(IsTrusteeNewId(index))
-    case TrusteePartnershipPreviousAddressId(index) => Some(IsTrusteeNewId(index))
-    case TrusteeIndividualPreviousAddressId(index) => Some(IsTrusteeNewId(index))
-    case EstablisherCompanyPreviousAddressId(index) => Some(IsEstablisherNewId(index))
-    case EstablisherPartnershipPreviousAddressId(index) => Some(IsEstablisherNewId(index))
-    case EstablisherIndividualPreviousAddressId(index) => Some(IsEstablisherNewId(index))
-    case PartnerPreviousAddressId(establisherIndex, partnerIndex) => Some(IsNewPartnerId(establisherIndex, partnerIndex))
-    case DirectorPreviousAddressId(establisherIndex, directorIndex) => Some(IsNewDirectorId(establisherIndex, directorIndex))
-    case _ => None
-  }
 }
 
 @Singleton
